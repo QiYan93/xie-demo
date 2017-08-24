@@ -6,7 +6,7 @@ var fs = require('fs');
 
 program
     .option('new [name]', '新建小程序组件文件')
-    .version('0.0.1')
+    .version(require('../package.json').version)
     .parse(process.argv); 
 
 var option = process.argv[2];

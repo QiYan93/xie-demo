@@ -1,6 +1,6 @@
 {
   "name": "xie-demo",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "小程序新建文件夹测试",
   "main": "index.js",
   "bin": {
@@ -11,6 +11,10 @@
   },
   "author": "qiyan93",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QiYan93/xie-demo"
+  },
   "dependencies": {
     "commander": "^2.11.0"
   }

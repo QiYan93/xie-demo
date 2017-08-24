@@ -2,6 +2,7 @@
 
 ### 方法
 ```
+npm install xie-demo -g
 wechatapp new [name]
 ```
 ### 命令
