@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+'use strict';
+
+var program = require('commander');
+var fs = require('fs');
+
+program
+    .option('new [name]', '新建小程序组件文件')
+    .version('0.0.1')
+    .parse(process.argv); 
+
+var option = process.argv[2];
+
+if(option === 'new'){
+    var name = process.argv[3];
+    if(name) {
+        newData(name);
+        console.log('新建成功!');
+        return;
+    }else {
+        console.log('请输入文件名, new [name]')
+    }
+}else{
+    program.help();
+}
+
+
+function newData(name){
+    var fs = require("fs");
+    var _dirname = process.cwd();
+    if(!fs.existsSync(_dirname+'/'+name)){
+        fs.mkdirSync(name);
+    }
+    fs.writeFile(_dirname+'/'+name+'/'+name+'.js', `/* ${name}.js */` ,  function(err) {
+       if (err) {
+           return console.error(err);
+       }
+    });
+    fs.writeFile(_dirname+'/'+name+'/'+name+'.json', '',  function(err) {
+        if (err) {
+            return console.error(err);
+        }
+    });
+    fs.writeFile(_dirname+'/'+name+'/'+name+'.wxml', `<!-- ${name}.wxml -->`,  function(err) {
+        if (err) {
+            return console.error(err);
+        }
+    });
+    fs.writeFile(_dirname+'/'+name+'/'+name+'.wxss', `/* ${name}.wxss */`,  function(err) {
+        if (err) {
+            return console.error(err);
+        }
+    });
+}
