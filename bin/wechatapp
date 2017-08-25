@@ -28,27 +28,21 @@ if(option === 'new'){
 function newData(name){
     var fs = require("fs");
     var _dirname = process.cwd();
+    var text = [
+            `/* ${name}.js */`,
+            '{}',
+            `<!-- ${name}.wxml -->`,
+            `/* ${name}.wxss */`
+        ];
+    var suffix = ['.js', '.json', '.wxml', '.wxss'];
     if(!fs.existsSync(_dirname+'/'+name)){
         fs.mkdirSync(name);
     }
-    fs.writeFile(_dirname+'/'+name+'/'+name+'.js', `/* ${name}.js */` ,  function(err) {
-       if (err) {
-           return console.error(err);
-       }
-    });
-    fs.writeFile(_dirname+'/'+name+'/'+name+'.json', '',  function(err) {
-        if (err) {
-            return console.error(err);
-        }
-    });
-    fs.writeFile(_dirname+'/'+name+'/'+name+'.wxml', `<!-- ${name}.wxml -->`,  function(err) {
-        if (err) {
-            return console.error(err);
-        }
-    });
-    fs.writeFile(_dirname+'/'+name+'/'+name+'.wxss', `/* ${name}.wxss */`,  function(err) {
-        if (err) {
-            return console.error(err);
-        }
-    });
+    for(var i = 0;i < 4;i++) {
+        fs.writeFile(_dirname+'/'+name+'/'+name+suffix[i], text[i] ,  function(err) {
+            if (err) {
+                return console.error(err);
+            }
+         });
+    }
 }
