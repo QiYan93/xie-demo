@@ -1,10 +1,10 @@
 {
-  "name": "xie-demo",
-  "version": "0.0.7",
+  "name": "mineProgramCreateFiles",
+  "version": "0.0.8",
   "description": "小程序新建文件夹",
   "main": "index.js",
   "bin": {
-    "wechatapp": "./bin/wechatapp"
+    "miniprogram": "./bin/miniProgram"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
